@@ -1,0 +1,9 @@
+.settingsBox {
+    height: auto;
+    width: 300px;
+    margin-right: 20px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 12px;
+    border: 2px solid black;
+    box-sizing: border-box;
+}
