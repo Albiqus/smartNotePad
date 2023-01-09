@@ -1,11 +1,11 @@
 .App {
-    width: max-content;
+    width: 1175px;
     height: 700px;
     margin: 0 auto;
     margin-top: 100px;
     vertical-align: middle;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 @font-face {

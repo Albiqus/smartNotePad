@@ -8,7 +8,7 @@ export const Note = () => {
     const description: string = useSelector((state: RootState) => state.main.currentDescription)
 
     return (
-        <div className={classes.noteBox}>
+        <div className={classes.main}>
             <h1>{title}</h1>
             <button className={classes.favoriteButton}></button>
             <button className={classes.editButton}></button>

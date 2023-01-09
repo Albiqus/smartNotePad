@@ -1,4 +1,4 @@
-.noteBox {
+.main {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -12,7 +12,7 @@
     box-sizing: border-box;
 }
 
-.noteBox h1 {
+.main h1 {
     margin: 0;
     width: 396px;
     height: 40px;
@@ -58,7 +58,7 @@
     outline: 2px solid rgb(85, 85, 85);
 }
 
-.noteBox p {
+.main p {
     width: 500px;
     height: 460px;
     margin: 0;

@@ -28,7 +28,7 @@ const startState = {
     ],
     currentTitle: 'Уброка',
     currentDescription: 'Подмести в коридоре, помыть полы, пропылесосить в квартире. Протереть пыль в коридоре на полках. Вынести мусор',
-    currentFavoriteStatus: false
+    currentFavoriteStatus: false,
 }
 
 export const mainReducer = (state = startState, action: any) => {
