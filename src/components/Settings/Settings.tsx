@@ -40,7 +40,7 @@ export const Settings = () => {
                         <option>вкл</option>
                         <option>выкл</option>
                     </select>
-                    <label htmlFor="timer">таймер</label>
+                    <label htmlFor="timer">часы</label>
                     <select id="timer">
                         <option>вкл</option>
                         <option>выкл</option>
@@ -54,6 +54,15 @@ export const Settings = () => {
                     <select id="background">
                         <option>белый</option>
                         <option>чёрный</option>
+                    </select>
+                    <label htmlFor="background">мелодия</label>
+                    <select id="background">
+                        <option>нет</option>
+                        <option>лес</option>
+                        <option>ручей</option>
+                        <option>костёр</option>
+                        <option>дождь</option>
+                        <option>ночь</option>
                     </select>
                     <button className={classes.defaultButton}>по умолчанию</button>
                 </div>

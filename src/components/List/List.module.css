@@ -3,12 +3,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
-    height: auto;
+    height: 700px;
     width: 250px;
     background-color: rgb(200, 200, 200);
     border-radius: 12px;
     border: 2px solid black;
-    margin-left: 5px;
+    margin-left: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
     box-sizing: border-box;
