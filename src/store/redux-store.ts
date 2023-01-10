@@ -1,12 +1,14 @@
 import { legacy_createStore, combineReducers } from "redux";
-import { mainReducer } from "./main-reducer";
+import { notesReducer } from "./notes-reducer";
+import { settingsReducer } from "./settings-reducer";
 
 
 
 
 
 let reducers = combineReducers({
-    main: mainReducer,
+    notes: notesReducer,
+    settings: settingsReducer
 })
 
 let store = legacy_createStore(reducers)

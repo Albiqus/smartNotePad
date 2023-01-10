@@ -4,8 +4,8 @@ import classes from './Note.module.css';
 
 export const Note = () => {
 
-    const title: string = useSelector((state: RootState) => state.main.currentTitle)
-    const description: string = useSelector((state: RootState) => state.main.currentDescription)
+    const title: string = useSelector((state: RootState) => state.notes.currentTitle)
+    const description: string = useSelector((state: RootState) => state.notes.currentDescription)
 
     return (
         <div className={classes.main}>

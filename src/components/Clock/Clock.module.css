@@ -15,11 +15,7 @@
     border-left: 2px solid black;
 }
 
-.main h1 {
-    font-family: 'custom';
-    margin: 0;
-}
-
+.main h1,
 .main p {
     font-family: 'custom';
     margin: 0;

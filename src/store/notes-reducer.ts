@@ -31,7 +31,7 @@ const startState = {
     currentFavoriteStatus: false,
 }
 
-export const mainReducer = (state = startState, action: any) => {
+export const notesReducer = (state = startState, action: any) => {
     switch (action.type) {
         case SET_CURRENT_TITLE: {
             const newCurrentTitle = [...state.notes].filter(note => note.id === action.id)[0].title

@@ -1,5 +1,4 @@
 import classes from './Notes.module.css';
-import deleteIcon from '../../../images/icons/delete.png'
 import favoriteIcon from '../../../images/icons/favorite-small.png'
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { RootState } from '../../../store/redux-store';
@@ -7,8 +6,8 @@ import { useDispatch } from 'react-redux';
 
 export const Notes = () => {
 
-    const notes: { id: string, title: string, description: string, isFavorite: boolean }[] = useSelector((state: RootState) => state.main['notes'])
-
+    const notes: { id: string, title: string, description: string, isFavorite: boolean }[] = useSelector((state: RootState) => state.notes['notes'])
+    
     const dispatch = useDispatch()
 
 

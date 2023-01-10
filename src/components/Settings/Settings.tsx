@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import classes from './Settings.module.css';
 
 export const Settings = () => {
+
+    const dispatch = useDispatch()
 
     const [settingsStatus, setSettingsStatus] = useState(false)
     const [isAnimation, setIsAnimation] = useState(false)
@@ -16,6 +19,10 @@ export const Settings = () => {
 
     const onSettingsMouseLeave = () => {
         if (!isAnimation) setSettingsStatus(false)
+    }
+
+    const onClockSelectChange = (e: any) => {
+        dispatch({ type: 'SET_CLOCK_SETTING', payload: e.target.value })
     }
 
     return (
@@ -41,7 +48,7 @@ export const Settings = () => {
                         <option>выкл</option>
                     </select>
                     <label htmlFor="timer">часы</label>
-                    <select id="timer">
+                    <select onChange={onClockSelectChange} id="timer">
                         <option>вкл</option>
                         <option>выкл</option>
                     </select>
