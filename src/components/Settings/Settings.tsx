@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import classes from './Settings.module.css';
 
 export const Settings = () => {
-
     const dispatch = useDispatch()
 
     const [settingsStatus, setSettingsStatus] = useState(false)
@@ -18,12 +17,25 @@ export const Settings = () => {
     }
 
     const onSettingsMouseLeave = () => {
-        if (!isAnimation) setSettingsStatus(false)
+        if (!isAnimation) {
+            setSettingsStatus(false)
+        }
+    }
+
+
+    const onSortingSelectChange = (e: any) => {
+        dispatch({ type: 'SET_SORTING_SETTING', payload: e.target.value })
+    }
+
+    const onSearchSelectChange = (e: any) => {
+        dispatch({ type: 'SET_SEARCH_SETTING', payload: e.target.value })
     }
 
     const onClockSelectChange = (e: any) => {
         dispatch({ type: 'SET_CLOCK_SETTING', payload: e.target.value })
     }
+
+
 
     return (
         <div>
@@ -38,12 +50,12 @@ export const Settings = () => {
                 </div>
                 <div className={`${classes.wrapper} ${settingsStatus ? classes.visible : classes.hidden}`}>
                     <label htmlFor="sorting">сортировка</label>
-                    <select id="sorting">
+                    <select onChange={onSortingSelectChange} id="sorting">
                         <option>вкл</option>
                         <option>выкл</option>
                     </select>
                     <label htmlFor="search">поиск</label>
-                    <select id="search">
+                    <select onChange={onSearchSelectChange} id="search">
                         <option>вкл</option>
                         <option>выкл</option>
                     </select>

@@ -8,14 +8,14 @@ import { Settings } from './components/Settings/Settings';
 import { RootState } from './store/redux-store';
 
 function App() {
-    const clockVisible = useSelector((state: RootState) => state.settings.clockVisible)
+    const clockMode = useSelector((state: RootState) => state.settings.clock)
 
     return (
         <div className="App">
             <Settings />
             <List />
             <Note />
-            {clockVisible && <Clock />}
+            {clockMode && <Clock />}
         </div>
     );
 }

@@ -1,9 +1,11 @@
+const SET_SORTING_SETTING = 'SET_SORTING_SETTING'
+const SET_SEARCH_SETTING = 'SET_SEARCH_SETTING'
 const SET_CLOCK_SETTING = 'SET_CLOCK_SETTING'
 
 const startState = {
-    sortingMode: true,
-    searchMode: true,
-    clockVisible: true,
+    sorting: true,
+    search: true,
+    clock: true,
     theme: 'light',
     background: 'white',
     melody: false
@@ -11,18 +13,25 @@ const startState = {
 
 export const settingsReducer = (state = startState, action: any) => {
     switch (action.type) {
+        case SET_SORTING_SETTING: {
+            return {
+                ...state,
+                sorting: action.payload === 'вкл' ? true : false
+            }
+        }
+        case SET_SEARCH_SETTING: {
+            return {
+                ...state,
+                search: action.payload === 'вкл' ? true : false
+            }
+        }
         case SET_CLOCK_SETTING: {
             return {
                 ...state,
-                clockVisible: action.payload === 'вкл' ? true : false
+                clock: action.payload === 'вкл' ? true : false
             }
         }
         default:
             return state;
     }
 }
-
-// export const setClockSetting = (value : string) => ({
-//     type: SET_CLOCK_SETTING,
-//     value
-// })
