@@ -9,12 +9,12 @@
     width: 205px;
     height: 40px;
     margin-top: 20px;
-    background-color: rgb(243, 243, 243);
+    background-color: #7a7a7a;
     border-radius: 5px;
 }
-
+    
 .noteItem:hover {
-    outline: 2px solid rgb(85, 85, 85);
+    outline: 2px solid silver;
     cursor: pointer;
 }
 
@@ -39,6 +39,7 @@
     font-size: 20px;
     margin: 0;
     margin-top: 7px;
+    color: #fff;
 }
 
 .noteItem button {
@@ -47,7 +48,8 @@
     margin: 10px 0px 0px 10px;
     border: none;
     display: none;
-    background-image: url(../../../images/icons/delete.png);
+    background-color: #7a7a7a;
+    background-image: url(../../../images/icons/light/delete.png);
 }
 
 .noteItem button:hover {

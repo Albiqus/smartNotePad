@@ -1,0 +1,23 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 25px;
+    bottom: 0;
+    width: 200px;
+    height: 75px;
+    border-radius: 0px 0px 12px 12px;
+    background-color: #7a7a7a;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-left: 2px solid black;
+}
+
+.main h1,
+.main p {
+    color: white;
+    font-family: 'custom';
+    margin: 0;
+}

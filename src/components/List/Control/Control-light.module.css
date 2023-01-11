@@ -1,0 +1,16 @@
+.main button {
+    position: absolute;
+    bottom: 40px;
+    right: 95px;
+    height: 60px;
+    width: 60px;
+    background-color: rgb(243, 243, 243);
+    background-image: url(../../../images/icons/light/add.png);
+    border-radius: 30px;
+    border: none;
+}
+
+.main button:hover {
+    cursor: pointer;
+    outline: 2px solid rgb(85, 85, 85);
+}

@@ -1,11 +1,14 @@
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/redux-store';
-import classes from './Note.module.css';
+import classesLight from './Note-light.module.css';
+import classesDark from './Note-dark.module.css';
 
 export const Note = () => {
-
+    const theme: string = useSelector((state: RootState) => state.settings.theme)
     const title: string = useSelector((state: RootState) => state.notes.currentTitle)
     const description: string = useSelector((state: RootState) => state.notes.currentDescription)
+
+    const classes = theme === 'light' ? classesLight : classesDark
 
     return (
         <div className={classes.main}>

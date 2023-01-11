@@ -1,0 +1,19 @@
+.main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main input {
+    height: 27px;
+    width: 210px;
+    font-size: 20px;
+    padding-left: 10px;
+    background-color: #7a7a7a;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+.main input::placeholder{
+    color: rgb(180, 180, 180);
+}

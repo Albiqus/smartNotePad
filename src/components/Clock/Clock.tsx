@@ -1,14 +1,20 @@
 import { useState } from 'react';
 import { getCurrentTime } from '../../utils/getCurrentTime';
-import classes from './Clock.module.css';
+import classesLight from './Clock-light.module.css';
+import classesDark from './Clock-dark.module.css';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store/redux-store';
 
 export const Clock = () => {
 
+    const theme: string = useSelector((state: RootState) => state.settings.theme)
+    const classes = theme === 'light' ? classesLight : classesDark
+
     const [time, setTime] = useState<any>(null)
-
-    setInterval(foo, 1000)
-
+    
+    const timer = setInterval(foo, 1000)
     function foo() {
+        clearInterval(timer)
         const currentTime = getCurrentTime()
         setTime(currentTime)
     }

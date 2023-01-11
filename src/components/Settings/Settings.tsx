@@ -1,9 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import classes from './Settings.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import classesLight from './Settings-light.module.css';
+import classesDark from './Settings-dark.module.css';
+import { RootState } from '../../store/redux-store';
 
 export const Settings = () => {
     const dispatch = useDispatch()
+
+    const theme: string = useSelector((state: RootState) => state.settings.theme)
+    const classes = theme === 'light' ? classesLight : classesDark
 
     const [settingsStatus, setSettingsStatus] = useState(false)
     const [isAnimation, setIsAnimation] = useState(false)
@@ -11,30 +16,17 @@ export const Settings = () => {
     const onSettingsMouseEnter = () => {
         setSettingsStatus(true)
         setIsAnimation(true)
-        setTimeout(() => {
-            setIsAnimation(false)
-        }, 600);
+        setTimeout(() => setIsAnimation(false), 600);
     }
 
     const onSettingsMouseLeave = () => {
-        if (!isAnimation) {
-            setSettingsStatus(false)
-        }
+        if (!isAnimation)  setSettingsStatus(false)
     }
 
-
-    const onSortingSelectChange = (e: any) => {
-        dispatch({ type: 'SET_SORTING_SETTING', payload: e.target.value })
-    }
-
-    const onSearchSelectChange = (e: any) => {
-        dispatch({ type: 'SET_SEARCH_SETTING', payload: e.target.value })
-    }
-
-    const onClockSelectChange = (e: any) => {
-        dispatch({ type: 'SET_CLOCK_SETTING', payload: e.target.value })
-    }
-
+    const onSortingSelectChange = (e: any) => dispatch({ type: 'SET_SORTING', payload: e.target.value })
+    const onSearchSelectChange = (e: any) => dispatch({ type: 'SET_SEARCH', payload: e.target.value })
+    const onClockSelectChange = (e: any) => dispatch({ type: 'SET_CLOCK', payload: e.target.value })
+    const onThemeSelectChange = (e: any) => dispatch({ type: 'SET_THEME', payload: e.target.value })
 
 
     return (
@@ -65,14 +57,9 @@ export const Settings = () => {
                         <option>выкл</option>
                     </select>
                     <label htmlFor="theme">тема</label>
-                    <select id="theme">
+                    <select onChange={onThemeSelectChange} id="theme">
                         <option>светлая</option>
                         <option>тёмная</option>
-                    </select>
-                    <label htmlFor="background">фон</label>
-                    <select id="background">
-                        <option>белый</option>
-                        <option>чёрный</option>
                     </select>
                     <label htmlFor="background">мелодия</label>
                     <select id="background">

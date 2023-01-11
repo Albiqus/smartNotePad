@@ -1,0 +1,141 @@
+.settingsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #f3f3f3;
+    border: 2px solid #000;
+}
+
+.settingsButton:hover {
+    cursor: pointer;
+}
+
+.settingsButton button {
+    width: 32px;
+    height: 32px;
+    background-image: url(../../images/icons/light/settings.png);
+    border: none;
+}
+
+.settingsButton button:hover {
+    cursor: pointer;
+}
+
+.noborder {
+    border: none;
+}
+
+.main {
+    position: relative;
+    background-color: rgb(243, 243, 243);
+    border-radius: 12px;
+    border: 2px solid black;
+    box-sizing: border-box;
+    visibility: hidden;
+}
+
+.openAnimation {
+    visibility: visible;
+    animation-name: openAnimation;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+.closeAnimation {
+    animation-name: closeAnimation;
+    animation-duration: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes openAnimation {
+    0% {
+        height: 700px;
+        width: 0px;
+    }
+
+    100% {
+        height: 700px;
+        width: 300px;
+    }
+}
+
+@keyframes closeAnimation {
+    0% {
+        height: 700px;
+        width: 300px;
+    }
+
+    100% {
+        height: 0px;
+        width: 0px;
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    opacity: 0;
+}
+
+.visible {
+    animation-name: visibleAnimation;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+}
+
+@keyframes visibleAnimation {
+    60% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.hidden {
+    opacity: 0
+}
+
+
+.wrapper label {
+    width: 125px;
+    margin-left: 23px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.wrapper select {
+    font-size: 17px;
+    width: 125px;
+    margin-top: 20px;
+    height: auto;
+    outline: none;
+    background-color: rgb(200, 200, 200);
+}
+
+.wrapper select:hover {
+    cursor: pointer;
+    outline: 2px solid rgb(85, 85, 85);
+}
+
+.defaultButton {
+    position: absolute;
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    bottom: 40px;
+    margin-left: 75px;
+    background-color: rgb(200, 200, 200);
+    border: none;
+    border-radius: 12px;
+}
+
+.defaultButton:hover {
+    cursor: pointer;
+    outline: 2px solid rgb(85, 85, 85);
+}
