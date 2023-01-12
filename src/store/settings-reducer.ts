@@ -2,14 +2,16 @@ const SET_SORTING = 'SET_SORTING'
 const SET_SEARCH = 'SET_SEARCH'
 const SET_CLOCK = 'SET_CLOCK'
 const SET_THEME = 'SET_THEME'
+const SET_SOUND = 'SET_SOUND'
+const SET_VOLUME = 'SET_VOLUME'
 
 const startState = {
     sorting: true,
     search: true,
     clock: true,
     theme: 'light',
-    background: 'white',
-    melody: false
+    sound: '',
+    volume: 100
 }
 
 export const settingsReducer = (state = startState, action: any) => {
@@ -36,6 +38,19 @@ export const settingsReducer = (state = startState, action: any) => {
             return {
                 ...state,
                 theme: action.payload === 'светлая' ? 'light' : 'dark'
+            }
+        }
+        case SET_SOUND: {
+            const sound = action.payload === 'нет' ? '' : action.payload
+            return {
+                ...state,
+                sound: sound
+            }
+        }
+        case SET_VOLUME: {
+            return {
+                ...state,
+                volume: action.payload
             }
         }
         default:

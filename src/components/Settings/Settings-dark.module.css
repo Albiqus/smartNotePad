@@ -127,6 +127,60 @@
     outline: 2px solid silver;
 }
 
+.wrapper input[type=range] {
+    width: 125px;
+    height: 27px;
+    margin-top: 23px;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #7a7a7a;
+    border: none;
+}
+
+.wrapper input[type=range]::-webkit-slider-runnable-track {
+    border-radius: 10px;
+    height: 10px;
+    background-color: #5a5a5a;
+}
+
+.wrapper input[type=range]::-webkit-slider-runnable-track:hover {
+    cursor: pointer;
+}
+
+.wrapper input[type=range]::-webkit-slider-thumb {
+    background: #5a5a5a;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid rgb(56, 56, 56);
+    width: 10px;
+    height: 20px;
+    -webkit-appearance: none;
+    margin-top: -5px;
+}
+
+.wrapper input[type=range]::-moz-range-track {
+    border-radius: 10px;
+    height: 10px;
+    background-color: #5a5a5a;
+}
+
+.wrapper input[type=range]::-moz-range-track:hover {
+    cursor: pointer;
+}
+
+.wrapper input[type=range]::-moz-range-thumb {
+    background: #5a5a5a;
+    border: 1px solid rgb(143, 143, 143);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 10px;
+    height: 20px;
+    -webkit-appearance: none;
+    margin-top: -5px;
+}
+
 .defaultButton {
     position: absolute;
     font-size: 20px;
