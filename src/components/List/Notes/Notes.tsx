@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 export const Notes = () => {
     const dispatch = useDispatch()
 
-    const notes: { id: string, title: string, description: string, isFavorite: boolean }[] = useSelector((state: RootState) => state.notes['notes'])
+    const notes: { id: string, title: string, description: string, isFavorite: boolean }[] = useSelector((state: RootState) => state.notes['actualNotes'])
     const theme: string = useSelector((state: RootState) => state.settings.theme)
    
 
@@ -33,10 +33,11 @@ export const Notes = () => {
             </div>
         )
     })
-
+    
     return (
         <div className={classes.main}>
             {notesItems}
+            {notesItems.length === 0 && <p className={classes.noFoundText}>не найдено</p>}
         </div>
     )
 }
