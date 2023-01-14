@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 export const Notes = () => {
     const dispatch = useDispatch()
 
-    const notes: { id: string, title: string, description: string, isFavorite: boolean }[] = useSelector((state: RootState) => state.notes['actualNotes'])
+    const notes: { id: string, title: string, description: string, isFavorite: boolean }[] = useSelector((state: RootState) => state.list.notes)
     const theme: string = useSelector((state: RootState) => state.settings.theme)
    
 
@@ -18,7 +18,7 @@ export const Notes = () => {
         // dispatch({type:})
     }
 
-
+    
     const classes = theme === 'light' ? classesLight : classesDark
 
 

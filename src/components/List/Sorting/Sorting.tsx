@@ -1,20 +1,34 @@
 import classesLight from './Sorting-light.module.css';
 import classesDark from './Sorting-dark.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/redux-store';
 
 export const Sorting = () => {
+    const dispatch = useDispatch()
+
+    const sortMode: string = useSelector((state: RootState) => state.list.sortMode)
     const theme: string = useSelector((state: RootState) => state.settings.theme)
     const classes = theme === 'light' ? classesLight : classesDark
 
+
+    const onAllNotesClick = () => dispatch({ type: 'SET_SORTED_NOTES', payload: 'all' })
+    const onFavoriteNotesClick = () => dispatch({ type: 'SET_SORTED_NOTES', payload: 'fav' })
+    
+
+
+
     return (
         <div className={classes.main}>
-            <div>
-                <div className={classes.radio}></div>
+            <div className={classes.allButton} onClick={onAllNotesClick}>
+                <div className={classes.radio}>
+                    {sortMode === 'all' && <div className={classes.selected}></div>}
+                </div>
                 <p>все</p>
             </div>
-            <div>
-                <div className={classes.radio}></div>
+            <div className={classes.favButton} onClick={onFavoriteNotesClick}>
+                <div className={classes.radio}>
+                    {sortMode === 'fav' && <div className={classes.selected}></div>}
+                </div>
                 <p>избранные</p>
             </div>
         </div>

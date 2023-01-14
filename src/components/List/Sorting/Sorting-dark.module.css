@@ -18,7 +18,7 @@
     background-color: rgba(243, 243, 243, 0.589);
 }
 
-.main div:last-child {
+.favButton {
     margin-left: 10px;
 }
 
@@ -40,4 +40,12 @@
 .radio:hover,
 .main p:hover {
     cursor: pointer;
+}
+
+.selected {
+    height: 10px;
+    width: 10px;
+    margin: 5px 5px;
+    border-radius: 2.5px;
+    background-color: #5a5a5a;
 }

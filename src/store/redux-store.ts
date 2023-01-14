@@ -1,5 +1,6 @@
 import { legacy_createStore, combineReducers } from "redux";
-import { notesReducer } from "./notes-reducer";
+import { listReducer } from "./list-reducer";
+import { noteReducer } from "./note-reducer";
 import { settingsReducer } from "./settings-reducer";
 
 
@@ -7,8 +8,9 @@ import { settingsReducer } from "./settings-reducer";
 
 
 let reducers = combineReducers({
-    notes: notesReducer,
-    settings: settingsReducer
+    list: listReducer,
+    settings: settingsReducer,
+    note: noteReducer
 })
 
 let store = legacy_createStore(reducers)

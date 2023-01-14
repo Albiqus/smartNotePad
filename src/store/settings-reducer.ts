@@ -41,7 +41,7 @@ export const settingsReducer = (state = startState, action: any) => {
             }
         }
         case SET_SOUND: {
-            const sound = action.payload === 'нет' ? '' : action.payload
+            const sound = action.payload === 'нет' ? false : action.payload
             return {
                 ...state,
                 sound: sound
