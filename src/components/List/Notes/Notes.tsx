@@ -9,22 +9,18 @@ export const Notes = () => {
     const dispatch = useDispatch()
 
     const notes: { id: string, title: string, description: string, isFavorite: boolean }[] = useSelector((state: RootState) => state.list.notes)
+    const currentNoteId: string = useSelector((state: RootState) => state.content.id)
+
     const theme: string = useSelector((state: RootState) => state.settings.theme)
-   
-
-
-    const onNoteClick = (e: any) => {
-        const noteId = e.currentTarget.id
-        // dispatch({type:})
-    }
-
-    
     const classes = theme === 'light' ? classesLight : classesDark
+
+
+    const onNoteClick = (e: any) => dispatch({ type: 'SET_CURRENT_NOTE', payload: e.currentTarget.id })
 
 
     const notesItems = notes.map(note => {
         return (
-            <div onClick={onNoteClick} className={classes.noteItem} key={note.id} id={note.id}>
+            <div onClick={onNoteClick} className={currentNoteId === note.id ? `${classes.noteItem} ${classes.currentNote}` : `${classes.noteItem}`} key={note.id} id={note.id}>
                 <div className={classes.favoriteBox}>
                     {note.isFavorite && <img src={favoriteIcon} alt='избранное'></img>}
                 </div>

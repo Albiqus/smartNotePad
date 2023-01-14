@@ -13,6 +13,10 @@
     border-radius: 5px;
 }
 
+.currentNote {
+    outline: 2px solid rgb(85, 85, 85);
+}
+
 .noteItem:hover {
     outline: 2px solid rgb(85, 85, 85);
     cursor: pointer;

@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
 import { Clock } from './components/Clock/Clock';
+import { Content } from './components/Content/Content';
 import { List } from './components/List/List';
-import { Note } from './components/Note/Note';
 import { Settings } from './components/Settings/Settings';
 import { Sound } from './components/Sound';
 import { RootState } from './store/redux-store';
@@ -18,7 +18,7 @@ function App() {
             {sound && <Sound sound={sound} />}
             <Settings />
             <List />
-            <Note />
+            <Content />
             {clockMode && <Clock />}
         </div>
     );
