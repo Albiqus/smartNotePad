@@ -1,24 +1,24 @@
-import sound1 from './sounds/summer-forest.mp3' // протещено
-import sound2 from './sounds/stream.mp3' // протещено
+import sound1 from './sounds/summer-forest.mp3'
+import sound2 from './sounds/stream.mp3'
 import sound3 from './sounds/bonfire.mp3'
 import sound4 from './sounds/rain.mp3'
 import sound5 from './sounds/night-sea.mp3'
 
 
-export const days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
-export const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+export const DAYS = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб']
+export const MONTHS = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 
-export const sounds = {
+export const SOUNDS = {
     'лето в лесу': sound1,
     'ручей': sound2,
     'костёр': sound3,
     'дождь': sound4,
     'ночное море': sound5
 }
-export const notes = [{
+export const NOTES = [{
         id: '1',
         title: 'Уборка',
-        description: 'Подмести в коридоре, помыть полы, пропылесосить в квартире.Протереть пыль в коридоре на полках.Вынести мусор',
+        description: 'Подмести в коридоре, помыть полы, пропылесосить в квартире.Протереть пыль в коридоре на полках. Вынести мусор',
         isFavorite: false
     },
     {
@@ -40,3 +40,8 @@ export const notes = [{
         isFavorite: false
     }
 ]
+
+export const ERRORS = {
+    emptyTitle: 'поле должно быть заполнено',
+    emptyDescription: 'поле должно быть заполнено',
+}

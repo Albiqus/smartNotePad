@@ -1,4 +1,4 @@
-import { days, months } from "../data"
+import { DAYS, MONTHS } from "../data"
 
 const formatTime = (time: number) => {
     if (String(time).length === 1) return `0${time}`
@@ -12,8 +12,8 @@ export const getCurrentTime = () => {
     const hh = formatTime(date.getHours())
     const mm = formatTime(date.getMinutes())
     const dd = formatTime(date.getDate())
-    const month = months[date.getMonth()]
-    const day = days[date.getDay()] 
+    const month = MONTHS[date.getMonth()]
+    const day = DAYS[date.getDay()] 
 
     return { hh, mm, dd, month, day }
 }

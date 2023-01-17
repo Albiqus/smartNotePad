@@ -1,8 +1,4 @@
 .main {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-end;
     height: 700px;
     width: 600px;
     margin-left: 20px;
@@ -10,57 +6,4 @@
     border-radius: 12px;
     border: 2px solid black;
     box-sizing: border-box;
-}
-
-.main h1 {
-    margin: 0;
-    width: 396px;
-    height: 40px;
-    margin-top: 30px;
-    margin-left: 40px;
-}
-
-.favoriteButton,
-.editButton,
-.deleteButton,
-.unfavoriteButton {
-    width: 60px;
-    height: 60px;
-    margin: 20px 20px 0px 0px;
-    background-color: rgb(200, 200, 200);
-    border: none;
-    border-radius: 30px;
-}
-
-.favoriteButton:hover,
-.editButton:hover,
-.deleteButton:hover,
-.unfavoriteButton:hover {
-    cursor: pointer;
-    outline: 2px solid rgb(85, 85, 85);
-}
-
-
-.favoriteButton {
-    background-image: url(../../images/icons/light/favorite-button-empty.png)
-}
-.unfavoriteButton {
-    background-image: url(../../images/icons/light/favorite-button.png)
-}
-.editButton {
-    background-image: url(../../images/icons/light/edit-button.png)
-}
-.deleteButton {
-    background-image: url(../../images/icons/light/delete-button.png)
-}
-
-
-.main p {
-    width: 500px;
-    height: 460px;
-    margin: 0;
-    margin-top: 40px;
-    margin-right: 48px;
-    font-family: "custom";
-    font-size: 20px;
 }

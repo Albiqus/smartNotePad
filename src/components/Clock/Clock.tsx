@@ -11,9 +11,9 @@ export const Clock = () => {
     const classes = theme === 'light' ? classesLight : classesDark
 
     const [time, setTime] = useState<any>(null)
-    
-    const timer = setInterval(foo, 1000)
-    function foo() {
+
+    const timer = setInterval(cb, 1000)
+    function cb() {
         clearInterval(timer)
         const currentTime = getCurrentTime()
         setTime(currentTime)
@@ -21,9 +21,11 @@ export const Clock = () => {
 
 
     return (
-        <div className={classes.main}>
-            <h1>{time?.hh} : {time?.mm}</h1>
-            <p>{time?.dd} {time?.month}, {time?.day}</p>
+        <div className={classes.wrapper}>
+            <div className={classes.main}>
+                <h1>{time?.hh} : {time?.mm}</h1>
+                <p>{time?.dd} {time?.month}, {time?.day}</p>
+            </div>
         </div>
     )
 }

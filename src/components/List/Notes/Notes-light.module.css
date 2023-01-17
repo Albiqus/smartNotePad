@@ -1,6 +1,26 @@
 .main {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
     height: 473px;
-    width: 205px;
+    width: 225px;
+    overflow-y: auto;
+    overflow: overlay
+}
+
+.main::-webkit-scrollbar {
+    margin-left: 10px;
+    width: 2px;
+}
+
+.main::-webkit-scrollbar-track {
+    background-color: rgb(200, 200, 200);
+}
+
+.main::-webkit-scrollbar-thumb {
+    background: rgb(85, 85, 85)
 }
 
 .noteItem {
@@ -43,6 +63,7 @@
     font-size: 20px;
     margin: 0;
     margin-top: 7px;
+    overflow: hidden;
 }
 
 .noteItem button {

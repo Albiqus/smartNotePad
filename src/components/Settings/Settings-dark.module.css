@@ -65,7 +65,7 @@
 
 @keyframes closeAnimation {
     0% {
-        height: 700px;
+        height: 0px;
         width: 310px;
     }
 

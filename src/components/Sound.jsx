@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { sounds } from '../data';
+import { SOUNDS } from '../data';
 
 
 export const Sound = ({ sound }) => {
@@ -14,7 +14,7 @@ export const Sound = ({ sound }) => {
 
     const soundRef = React.useRef()
     return (
-        <audio ref={soundRef} src={sounds[sound]} autoPlay muted={false} hidden loop={true}></audio>
+        <audio ref={soundRef} src={SOUNDS[sound]} autoPlay muted={false} hidden loop={true}></audio>
     )
 }
 

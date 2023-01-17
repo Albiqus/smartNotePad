@@ -9,11 +9,11 @@ export const Search = () => {
 
 
     const theme: string = useSelector((state: RootState) => state.settings.theme)
-    const searchValue: string = useSelector((state: RootState) => state.list.searchValue)
+    const searchValue: string = useSelector((state: RootState) => state.main.searchValue)
     const classes = theme === 'light' ? classesLight : classesDark
 
 
-    const onSearchInputChange = (e: any) => dispatch({ type: 'SET_FOUND_NOTES', payload: e.target.value })
+    const onSearchInputChange = (e: any) => dispatch({ type: 'SET_SEARCH_VALUE', payload: e.target.value })
     
 
 

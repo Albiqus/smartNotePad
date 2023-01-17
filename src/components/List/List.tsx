@@ -7,6 +7,7 @@ import { Notes } from './Notes/Notes';
 import { Search } from './Search/Search';
 import { Sorting } from './Sorting/Sorting';
 
+
 export const List = () => {
     const theme: string = useSelector((state: RootState) => state.settings.theme)
     const sortingMode = useSelector((state: RootState) => state.settings.sorting)
