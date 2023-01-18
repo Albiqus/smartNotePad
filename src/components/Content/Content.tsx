@@ -3,20 +3,21 @@ import { RootState } from '../../store/redux-store';
 import classesLight from './Content-light.module.css';
 import classesDark from './Content-dark.module.css';
 import { CurrentNote } from './CurrentNote/CurrentNote';
-import { NewNote } from './NewNote/NewNote';
+import { EditorNote } from './NoteEditor/NoteEditor';
+
 
 export const Content = () => {
     const theme: string = useSelector((state: RootState) => state.settings.theme)
     const classes = theme === 'light' ? classesLight : classesDark
     
     const notes: any = useSelector((state: RootState) => state.main.notes)
-    const isNoteCreation: boolean = useSelector((state: RootState) => state.main.isNoteCreation)
+    const noteEditorStatus: boolean = useSelector((state: RootState) => state.main.noteEditorStatus)
 
 
     return (
         <div className={classes.main}>
-            {!isNoteCreation && notes.length !== 0 && <CurrentNote />}
-            {isNoteCreation && <NewNote/>}
+            {!noteEditorStatus && notes.length !== 0 && <CurrentNote />}
+            {noteEditorStatus && <EditorNote/>}
         </div>
     )
 

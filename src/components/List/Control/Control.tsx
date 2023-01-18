@@ -9,7 +9,7 @@ export const Control = () => {
     const theme: string = useSelector((state: RootState) => state.settings.theme)
     const classes = theme === 'light' ? classesLight : classesDark
 
-    const onAddNoteButtonClick = () => dispatch({ type: 'SET_IS_NOTE_CREATION', payload: true })
+    const onAddNoteButtonClick = () => { dispatch({ type: 'SET_EDITOR_STATUS', payload: { status: true } }) } 
 
 
     return (

@@ -5,15 +5,19 @@ const SET_SORT_MODE = 'SET_SORT_MODE'
 const ADD_NEW_NOTE = 'ADD_NEW_NOTE'
 const DELETE_NOTE = 'DELETE_NOTE'
 const SET_CURRENT_NOTE_ID = 'SET_CURRENT_NOTE_ID'
-const SET_IS_NOTE_CREATION = 'SET_IS_NOTE_CREATION'
+const SET_EDITOR_STATUS = 'SET_EDITOR_STATUS'
 const SET_ERRORS = 'SET_ERRORS'
+const SET_IS_FAVORITE_NOTE = 'SET_IS_FAVORITE_NOTE'
+const SET_IS_NOTE_EDIT = 'SET_IS_NOTE_EDIT'
+const UPDATE_NOTE = 'UPDATE_NOTE'
 
 const startState = {
     notes: NOTES,
     currentNoteId: '1',
     searchValue: '',
     sortMode: 'all',
-    isNoteCreation: false,
+    noteEditorStatus: false,
+    isNoteEdit: false,
     errors: null,
 }
 
@@ -39,7 +43,7 @@ export const mainReducer = (state = startState, action: any) => {
                 id: newNoteId,
                 title: action.payload.titleValue,
                 description: action.payload.descriptionValue,
-                isFavorite: false
+                isFavorite: action.payload.isFavorite,
             }
             return {
                 ...state,
@@ -60,10 +64,10 @@ export const mainReducer = (state = startState, action: any) => {
                 currentNoteId: action.payload.id
             }
         }
-        case SET_IS_NOTE_CREATION: {
+        case SET_EDITOR_STATUS: {
             return {
                 ...state,
-                isNoteCreation: action.payload
+                noteEditorStatus: action.payload.status
             }
         }
         case SET_ERRORS: {
@@ -72,6 +76,32 @@ export const mainReducer = (state = startState, action: any) => {
                 errors: action.payload
             }
         }
+        case SET_IS_FAVORITE_NOTE: {
+            return {
+                ...state,
+                notes: [...state.notes].map(note => {
+                    if (note.id !== action.payload.id) return note
+                    return { ...note, isFavorite: !note.isFavorite }
+                })
+            }
+        }
+        case SET_IS_NOTE_EDIT: {
+            return {
+                ...state,
+                isNoteEdit: action.payload.status
+            }
+        }
+        case UPDATE_NOTE: {
+            console.log(action.payload)
+            return {
+                ...state,
+                notes: [...state.notes].map(note => {
+                    if (note.id !== action.payload.id) return note
+                    return { ...note, title: action.payload.title, description: action.payload.description }
+                })
+            }
+        }
+
         default:
             return state;
     }
