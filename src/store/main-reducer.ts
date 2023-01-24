@@ -27,6 +27,7 @@ export const mainReducer = (state = startState, action: any) => {
             return {
                 ...state,
                 searchValue: action.payload,
+                currentNoteId: state.notes.filter(note => note.title.toLowerCase().startsWith(action.payload.toLowerCase()))[0]?.id || '1'
             }
         }
         case SET_SORT_MODE: {

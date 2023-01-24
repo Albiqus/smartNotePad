@@ -1,10 +1,11 @@
-.wrapper {
+import styled from 'styled-components'
+
+export const Wrapper = styled.div`
     width: 400px;
     display: flex;
     justify-content: flex-end;
-}
-
-.main {
+`
+export const Main = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -13,15 +14,20 @@
     height: 75px;
     margin-right: 40px;
     border-radius: 0px 0px 12px 12px;
-    background-color: #7a7a7a;
+    background-color: ${props => props.theme.primaryColor};
     border-right: 2px solid black;
     border-bottom: 2px solid black;
     border-left: 2px solid black;
-}
+`
 
-.main h1,
-.main p {
-    color: white;
+export const Header = styled.h1`
+    color: ${props => props.theme.fontColor};
     font-family: 'custom';
     margin: 0;
-}
+`
+export const Paragraph = styled.p`
+    color: ${props => props.theme.fontColor};
+    font-family: 'custom';
+    margin: 0;
+    margin-bottom: 5px
+`

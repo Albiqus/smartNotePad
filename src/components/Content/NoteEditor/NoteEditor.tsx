@@ -1,16 +1,13 @@
-import classesLight from './NoteEditor-light.module.css';
-import classesDark from './NoteEditor-dark.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/redux-store';
 import { useState } from 'react';
 import { getErrors } from '../../../utils/getErrors';
+import { AcceptButton, Input, Main, Modal, Paragraph, RejectButton, Textarea, Wrapper } from './NoteEditor-styles';
 
 
-export const EditorNote = () => {
+export const EditorNote = (props) => {
     const dispatch = useDispatch()
 
-    const theme: string = useSelector((state: RootState) => state.settings.theme)
-    const classes = theme === 'light' ? classesLight : classesDark
     const errors: any = useSelector((state: RootState) => state.main.errors)
     const sortMode: string = useSelector((state: RootState) => state.main.sortMode)
     const isNoteEdit: boolean = useSelector((state: RootState) => state.main.isNoteEdit)
@@ -19,9 +16,6 @@ export const EditorNote = () => {
 
     const currentNote = notes.find(note => note.id === currentNoteId)
     const { title, description } = currentNote
-
-    const titleClassName = errors?.title ? `${classes.title} ${classes.error}` : classes.title
-    const descriptionClassName = errors?.description ? `${classes.description} ${classes.error}` : classes.description
 
     const [titleValue, setTitleValue] = useState(isNoteEdit ? title : '')
     const [descriptionValue, setDescriptionValue] = useState(isNoteEdit ? description : '')
@@ -52,8 +46,6 @@ export const EditorNote = () => {
         const isFavorite = sortMode === 'fav' ? true : false
         dispatch({ type: 'ADD_NEW_NOTE', payload: { titleValue, descriptionValue, isFavorite } })
         dispatch({ type: 'SET_EDITOR_STATUS', payload: { status: false } })
-
-
     }
 
     const onRejectButtonClick = () => {
@@ -69,16 +61,16 @@ export const EditorNote = () => {
     window.addEventListener('keydown', handleKeyDown)
 
     return (
-        <div className={classes.modal}>
-            <div className={classes.main}>
-                <input className={titleClassName} onChange={onTitleChange} placeholder='Название..' value={titleValue} />
-                <textarea className={descriptionClassName} onChange={onDescriptionChange} placeholder='Описание..' value={descriptionValue}></textarea>
-                <div className={classes.buttonsBox}>
-                    <button onClick={onAcceptButtonClick}></button>
-                    <button onClick={onRejectButtonClick}></button>
-                </div>
-                {errors && <p className={classes.errorText}>все поля должны быть заполнены</p>}
-            </div>
-        </div>
+        <Modal>
+            <Main>
+                <Input errors={errors} onChange={onTitleChange} placeholder='Название..' value={titleValue}></Input>
+                <Textarea errors={errors} onChange={onDescriptionChange} placeholder='Описание..' value={descriptionValue}></Textarea>
+                <Wrapper>
+                    <AcceptButton onClick={onAcceptButtonClick}></AcceptButton>
+                    <RejectButton onClick={onRejectButtonClick}></RejectButton>
+                </Wrapper>
+                {errors && <Paragraph>все поля должны быть заполнены</Paragraph>}
+            </Main>
+        </Modal>
     )
 }

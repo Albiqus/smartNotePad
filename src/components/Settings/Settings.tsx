@@ -1,21 +1,24 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classesLight from './Settings-light.module.css';
-import classesDark from './Settings-dark.module.css';
+import animationLight from './animation-light.module.css';
+import animationDark from './animation-dark.module.css';
 import { RootState } from '../../store/redux-store';
+import { DefaultButton, Input, Label, Option, Select, SelectWrapper, SettingsButton, Switch, TumblerInput, TumblerWrapper, Wrapper, WrapperButton } from './Settings-styles';
+
 
 export const Settings = () => {
     const dispatch = useDispatch()
 
-
     const volume: number = useSelector((state: RootState) => state.settings.volume)
+    const sorting: boolean = useSelector((state: RootState) => state.settings.sorting)
+    const search: boolean = useSelector((state: RootState) => state.settings.search)
+    const clock: boolean = useSelector((state: RootState) => state.settings.clock)
+    const sound: string = useSelector((state: RootState) => state.settings.sound)
     const theme: string = useSelector((state: RootState) => state.settings.theme)
-    const classes = theme === 'light' ? classesLight : classesDark
+    const classes = theme === 'light' ? animationLight : animationDark
 
-
-    const [settingsStatus, setSettingsStatus] = useState(false)
+    const [settingsStatus, setSettingsStatus] = useState(false) 
     const [isAnimation, setIsAnimation] = useState(false)
-
 
     const onSettingsMouseEnter = () => {
         setSettingsStatus(true)
@@ -27,61 +30,71 @@ export const Settings = () => {
         if (!isAnimation) setSettingsStatus(false)
     }
 
-    const onSortingSelectChange = (e: any) => dispatch({ type: 'SET_SORTING', payload: e.target.value })
-    const onSearchSelectChange = (e: any) => dispatch({ type: 'SET_SEARCH', payload: e.target.value })
-    const onClockSelectChange = (e: any) => dispatch({ type: 'SET_CLOCK', payload: e.target.value })
+    const onSortingChange = (e: any) => dispatch({ type: 'SET_SORTING' })
+    const onSearchChange = (e: any) => dispatch({ type: 'SET_SEARCH' })
+    const onClockChange = (e: any) => dispatch({ type: 'SET_CLOCK' })
     const onThemeSelectChange = (e: any) => dispatch({ type: 'SET_THEME', payload: e.target.value })
     const onMelodySelectChange = (e: any) => dispatch({ type: 'SET_SOUND', payload: e.target.value })
     const onVolumeChange = (e: any) => dispatch({ type: 'SET_VOLUME', payload: e.target.value })
+    const onDefaultButtonClick = () => dispatch({ type: 'SET_DEFAULT_SETTINGS' })
 
     return (
-        <div>
+        <Wrapper>
             {!settingsStatus &&
-                <div onMouseEnter={onSettingsMouseEnter} className={classes.settingsButton}>
-                    <button></button>
-                </div>}
-
+                <WrapperButton settingsStatus={settingsStatus} onMouseEnter={onSettingsMouseEnter}>
+                    <SettingsButton></SettingsButton>
+                </WrapperButton>}
             <div onMouseLeave={onSettingsMouseLeave} className={`${classes.main} ${settingsStatus ? classes.openAnimation : classes.closeAnimation}`}>
-                <div className={`${classes.settingsButton} ${classes.noborder}`}>
-                    <button></button>
-                </div>
+                <WrapperButton settingsStatus={settingsStatus}>
+                    <SettingsButton></SettingsButton>
+                </WrapperButton>
                 <div className={`${classes.wrapper} ${settingsStatus ? classes.visible : classes.hidden}`}>
-                    <label htmlFor="sorting">сортировка</label>
-                    <select onChange={onSortingSelectChange} id="sorting">
-                        <option>вкл</option>
-                        <option>выкл</option>
-                    </select>
-                    <label htmlFor="search">поиск</label>
-                    <select onChange={onSearchSelectChange} id="search">
-                        <option>вкл</option>
-                        <option>выкл</option>
-                    </select>
-                    <label htmlFor="timer">часы</label>
-                    <select onChange={onClockSelectChange} id="timer">
-                        <option>вкл</option>
-                        <option>выкл</option>
-                    </select>
-                    <label htmlFor="theme">тема</label>
-                    <select onChange={onThemeSelectChange} id="theme">
-                        <option>светлая</option>
-                        <option>тёмная</option>
-                    </select>
-                    <label htmlFor="background">мелодия</label>
-                    <select onChange={onMelodySelectChange} id="background">
-                        <option>нет</option>
-                        <option>лето в лесу</option>
-                        <option>ручей</option>
-                        <option>костёр</option>
-                        <option>дождь</option>
-                        <option>ночное море</option>
-                    </select>
-                    <label htmlFor="volume">громкость</label>
-                    <input onChange={onVolumeChange} type="range" id='volume' value={volume}/>
-                    <button className={classes.defaultButton}>по умолчанию</button>
+
+                    <Label htmlFor="search">поиск</Label>
+                    <TumblerWrapper>
+                        <TumblerInput checked={search} onChange={onSearchChange} type="checkbox" />
+                        <Switch />
+                    </TumblerWrapper>
+
+                    <Label htmlFor="sorting">сортировка</Label>
+                    <TumblerWrapper>
+                        <TumblerInput checked={sorting} onChange={onSortingChange} type="checkbox" />
+                        <Switch />
+                    </TumblerWrapper>
+
+                    <Label htmlFor="timer">часы</Label>
+                    <TumblerWrapper>
+                        <TumblerInput checked={clock} onChange={onClockChange} type="checkbox" />
+                        <Switch />
+                    </TumblerWrapper>
+
+                    <Label htmlFor="theme">тема</Label>
+                    <SelectWrapper>
+                        <Select value={theme} onChange={onThemeSelectChange} id="theme">
+                            <Option value={'light'}>светлая</Option>
+                            <Option value={'dark'}>тёмная</Option>
+                        </Select>
+                    </SelectWrapper>
+
+                    <Label htmlFor="background">мелодия</Label>
+                    <SelectWrapper>
+                        <Select value={sound} onChange={onMelodySelectChange} id="background">
+                            <Option value={'нет'}>нет</Option>
+                            <Option value={'лето в лесу'}>лето в лесу</Option>
+                            <Option value={'ручей'}>ручей</Option>
+                            <Option value={'костёр'}>костёр</Option>
+                            <Option value={'дождь'}>дождь</Option>
+                            <Option value={'ночное море'}>ночное море</Option>
+                        </Select>
+                    </SelectWrapper>
+
+                    <Label htmlFor="volume">громкость</Label>
+                    <Input onChange={onVolumeChange} type="range" id='volume' value={volume} />
+                    
+                    <DefaultButton onClick={onDefaultButtonClick}>по умолчанию</DefaultButton>
                 </div>
             </div>
-        </div>
-
+        </Wrapper>
     )
 }
 
