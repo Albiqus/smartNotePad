@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/smartNotepad/static/css/main.113524f7.css",
+    "main.js": "/smartNotepad/static/js/main.2b26a80e.js",
+    "static/js/787.1f50f65d.chunk.js": "/smartNotepad/static/js/787.1f50f65d.chunk.js",
+    "static/media/bonfire.mp3": "/smartNotepad/static/media/bonfire.3b736da5cee2eaddca42.mp3",
+    "static/media/stream.mp3": "/smartNotepad/static/media/stream.5a2dfa47913ef9319c95.mp3",
+    "static/media/night-sea.mp3": "/smartNotepad/static/media/night-sea.3c905ac06fef2528b8e4.mp3",
+    "static/media/summer-forest.mp3": "/smartNotepad/static/media/summer-forest.ea17d63c850fd9e1b41c.mp3",
+    "static/media/rain.mp3": "/smartNotepad/static/media/rain.ebddba50cfce1ec64850.mp3",
+    "static/media/ofont.ru_Hero.ttf": "/smartNotepad/static/media/ofont.ru_Hero.e7de38fb0b59857c16cd.ttf",
+    "index.html": "/smartNotepad/index.html",
+    "main.113524f7.css.map": "/smartNotepad/static/css/main.113524f7.css.map",
+    "main.2b26a80e.js.map": "/smartNotepad/static/js/main.2b26a80e.js.map",
+    "787.1f50f65d.chunk.js.map": "/smartNotepad/static/js/787.1f50f65d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.113524f7.css",
+    "static/js/main.2b26a80e.js"
+  ]
+}
