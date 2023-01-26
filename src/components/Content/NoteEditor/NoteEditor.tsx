@@ -6,6 +6,7 @@ import { AcceptButton, Input, Main, Modal, Paragraph, RejectButton, Textarea, Wr
 
 
 export const EditorNote = (props) => {
+
     const dispatch = useDispatch()
 
     const errors: any = useSelector((state: RootState) => state.main.errors)
@@ -19,7 +20,6 @@ export const EditorNote = (props) => {
 
     const [titleValue, setTitleValue] = useState(isNoteEdit ? title : '')
     const [descriptionValue, setDescriptionValue] = useState(isNoteEdit ? description : '')
-
 
     const onTitleChange = (e: any) => {
         dispatch({ type: 'SET_ERRORS', payload: null })
@@ -63,8 +63,8 @@ export const EditorNote = (props) => {
     return (
         <Modal>
             <Main>
-                <Input errors={errors} onChange={onTitleChange} placeholder='Название..' value={titleValue}></Input>
-                <Textarea errors={errors} onChange={onDescriptionChange} placeholder='Описание..' value={descriptionValue}></Textarea>
+                <Input error={errors?.title} onChange={onTitleChange} placeholder='Название..' value={titleValue}></Input>
+                <Textarea error={errors?.description} onChange={onDescriptionChange} placeholder='Описание..' value={descriptionValue}></Textarea>
                 <Wrapper>
                     <AcceptButton onClick={onAcceptButtonClick}></AcceptButton>
                     <RejectButton onClick={onRejectButtonClick}></RejectButton>

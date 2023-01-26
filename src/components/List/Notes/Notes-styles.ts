@@ -22,7 +22,7 @@ export const Main = styled.div`
     height: 473px;
     width: 225px;
     overflow-y: auto;
-    overflow: overlay
+    overflow: overlay;
 `
 
 export const Button = styled.button`
@@ -47,6 +47,7 @@ export const Title = styled.p`
     margin: 0;
     margin-top: 7px;
     overflow: hidden;
+    white-space: nowrap;
     color: ${props => props.theme.fontColor}
 `
 

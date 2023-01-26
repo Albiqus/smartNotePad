@@ -38,7 +38,7 @@ export const settingsReducer = (state = startState, action: any) => {
         case SET_THEME: {
             return {
                 ...state,
-                theme: action.payload === 'светлая' ? 'light' : 'dark'
+                theme: action.payload
             }
         }
         case SET_SOUND: {

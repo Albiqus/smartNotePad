@@ -51,24 +51,35 @@ export const Input = styled.input`
         'Droid Sans',
         'Helvetica Neue',
         sans-serif;
-    background-color: ${props => props.errors ? 'rgba(255, 0, 0, 0.253)' : props.theme.secondaryColor};
+    background-color: ${props => props.error ? 'rgba(255, 0, 0, 0.253)' : props.theme.secondaryColor};
     color: ${props => props.theme.fontColor}
    
 `
 
 export const Textarea = styled.textarea`
+&::-webkit-scrollbar {
+    margin-left: 10px;
+    width: 2px;
+}
+
+&::-webkit-scrollbar-track {
+    background-color: ${props => props.theme.secondaryColor};
+}
+
+&::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.hoverColor}
+}
     width: 500px;
     height: 456px;
     margin-top: 41px;
     font-family: "custom";
     font-size: 20px;
-    background-color: ${props => props.errors ? 'rgba(255, 0, 0, 0.253)' : props.theme.secondaryColor};
+    background-color: ${props => props.error ? 'rgba(255, 0, 0, 0.253)' : props.theme.secondaryColor};
     color: ${props => props.theme.fontColor};
     border: none;
     outline: none;
     resize: none;
     box-sizing: border-box;
-    
 `
 
 export const Wrapper = styled.div`

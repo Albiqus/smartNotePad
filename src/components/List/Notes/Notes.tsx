@@ -13,6 +13,7 @@ interface notes {
 
 
 export const Notes = () => {
+
     const dispatch = useDispatch()
 
     const notes: notes[] = useSelector((state: RootState) => state.main.notes)
@@ -20,11 +21,12 @@ export const Notes = () => {
     const sortMode: string = useSelector((state: RootState) => state.main.sortMode)
     const searchValue: string = useSelector((state: RootState) => state.main.searchValue)
 
+    
     const onNoteClick = (e: any) => {
         if (e.target.name === 'button') return
         dispatch({ type: 'SET_CURRENT_NOTE_ID', payload: { id: e.currentTarget.id } })
     }
-    
+
     const onDeleteNoteClick = (e: any) => {
         dispatch({ type: 'DELETE_NOTE', payload: { id: e.currentTarget.id } })
     }

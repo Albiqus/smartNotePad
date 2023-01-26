@@ -45,3 +45,22 @@ export const ERRORS = {
     emptyTitle: 'поле должно быть заполнено',
     emptyDescription: 'поле должно быть заполнено',
 }
+
+export const themes = {
+    light: {
+        title: 'light',
+        primaryColor: '#f3f3f3;',
+        secondaryColor: '#c8c8c8',
+        fontColor: 'black',
+        hoverColor: '#555555',
+        additionalColor: '#8f8f8f'
+    },
+    dark: {
+        title: 'dark',
+        primaryColor: '#7a7a7a;',
+        secondaryColor: '#5a5a5a',
+        fontColor: 'white',
+        hoverColor: 'silver',
+        additionalColor: '#383838'
+    },
+}

@@ -17,7 +17,8 @@ export const Main = styled.div`
     align-content: flex-start;
     justify-content: flex-end;
 `
-export const Header = styled.h1`
+export const Title = styled.h1`
+    white-space: nowrap;
     margin: 0;
     width: 366px;
     height: 40px;
@@ -60,7 +61,19 @@ export const DeleteButton = styled(Button)`
   }
 `
 
-export const Paragraph = styled.p`
+export const Description = styled.p`
+&::-webkit-scrollbar {
+    margin-left: 10px;
+    width: 2px;
+}
+
+&::-webkit-scrollbar-track {
+    background-color: ${props => props.theme.secondaryColor};
+}
+
+&::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.hoverColor}
+}
     word-wrap: break-word;
     white-space: pre-wrap;
     width: 500px;
@@ -70,5 +83,7 @@ export const Paragraph = styled.p`
     margin-right: 46px;
     font-family: "custom";
     font-size: 20px;
-    color: ${props => props.theme.fontColor}
+    overflow-y: auto;
+    overflow: overlay;
+    color: ${props => props.theme.fontColor};
 `

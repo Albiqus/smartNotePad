@@ -8,6 +8,7 @@ import { Main } from './List-styles';
 
 
 export const List = () => {
+    
     const sortingMode = useSelector((state: RootState) => state.settings.sorting)
     const searchMode = useSelector((state: RootState) => state.settings.search)
     

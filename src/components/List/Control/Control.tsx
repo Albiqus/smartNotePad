@@ -3,9 +3,10 @@ import { Button, Main } from './Control-styles';
 
 
 export const Control = () => {
-    const dispatch = useDispatch()
-    const onAddNoteButtonClick = () => { dispatch({ type: 'SET_EDITOR_STATUS', payload: { status: true } }) } 
 
+    const dispatch = useDispatch()
+
+    const onAddNoteButtonClick = () => { dispatch({ type: 'SET_EDITOR_STATUS', payload: { status: true } }) } 
     
     return (
         <Main>

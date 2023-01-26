@@ -7,6 +7,7 @@ import { DefaultButton, Input, Label, Option, Select, SelectWrapper, SettingsBut
 
 
 export const Settings = () => {
+    
     const dispatch = useDispatch()
 
     const volume: number = useSelector((state: RootState) => state.settings.volume)
@@ -17,8 +18,9 @@ export const Settings = () => {
     const theme: string = useSelector((state: RootState) => state.settings.theme)
     const classes = theme === 'light' ? animationLight : animationDark
 
-    const [settingsStatus, setSettingsStatus] = useState(false) 
+    const [settingsStatus, setSettingsStatus] = useState(false)
     const [isAnimation, setIsAnimation] = useState(false)
+
 
     const onSettingsMouseEnter = () => {
         setSettingsStatus(true)
@@ -90,7 +92,7 @@ export const Settings = () => {
 
                     <Label htmlFor="volume">громкость</Label>
                     <Input onChange={onVolumeChange} type="range" id='volume' value={volume} />
-                    
+
                     <DefaultButton onClick={onDefaultButtonClick}>по умолчанию</DefaultButton>
                 </div>
             </div>

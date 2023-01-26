@@ -93,7 +93,6 @@ export const mainReducer = (state = startState, action: any) => {
             }
         }
         case UPDATE_NOTE: {
-            console.log(action.payload)
             return {
                 ...state,
                 notes: [...state.notes].map(note => {

@@ -7,7 +7,6 @@ export const Clock = () => {
     
     const [time, setTime] = useState<any>(null)
 
-    
     const timer = setInterval(cb, 1000)
     function cb() {
         clearInterval(timer)
