@@ -11,9 +11,8 @@ export const CurrentNote = () => {
     const currentNoteId: String = useSelector((state: RootState) => state.main.currentNoteId)
 
     const currentNote = notes.find(note => note.id === currentNoteId)
-    const { title, description, isFavorite, id } = currentNote
+    const { title, description, isFavorite, id } = currentNote || {}
 
-    
     const onDeleteNoteClick = (e: any) => {
         dispatch({ type: 'DELETE_NOTE', payload: { id } })
     }
@@ -28,8 +27,8 @@ export const CurrentNote = () => {
     }
 
     const onNoteDoubleClick = () => onEditNoteClick()
-    
-    return (
+
+    return currentNote && (
         <Main onDoubleClick={onNoteDoubleClick}>
             <Title>{title}</Title>
             {isFavorite && <UnfavoriteButton onClick={onSetFavoriteClick}></UnfavoriteButton>}

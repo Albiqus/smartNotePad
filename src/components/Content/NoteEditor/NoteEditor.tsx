@@ -15,8 +15,8 @@ export const EditorNote = (props) => {
     const notes: any = useSelector((state: RootState) => state.main.notes)
     const currentNoteId: String = useSelector((state: RootState) => state.main.currentNoteId)
 
-    const currentNote = notes.find(note => note.id === currentNoteId)
-    const { title, description } = currentNote
+    const currentNote = notes.find(note => note.id === currentNoteId) || {}
+    const { title, description} = currentNote
 
     const [titleValue, setTitleValue] = useState(isNoteEdit ? title : '')
     const [descriptionValue, setDescriptionValue] = useState(isNoteEdit ? description : '')

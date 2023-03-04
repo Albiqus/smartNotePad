@@ -1,4 +1,6 @@
 import { NOTES } from "../data"
+import { getActualNotes } from "../utils/getActualNotes"
+
 
 const SET_SEARCH_VALUE = 'SET_SEARCH_VALUE'
 const SET_SORT_MODE = 'SET_SORT_MODE'
@@ -10,6 +12,7 @@ const SET_ERRORS = 'SET_ERRORS'
 const SET_IS_FAVORITE_NOTE = 'SET_IS_FAVORITE_NOTE'
 const SET_IS_NOTE_EDIT = 'SET_IS_NOTE_EDIT'
 const UPDATE_NOTE = 'UPDATE_NOTE'
+
 
 const startState = {
     notes: NOTES,
@@ -24,16 +27,19 @@ const startState = {
 export const mainReducer = (state = startState, action: any) => {
     switch (action.type) {
         case SET_SEARCH_VALUE: {
+            const actualNotes = getActualNotes(state.notes, state.sortMode, state.searchValue)
             return {
                 ...state,
                 searchValue: action.payload,
-                currentNoteId: state.notes.filter(note => note.title.toLowerCase().startsWith(action.payload.toLowerCase()))[0]?.id || '1'
+                currentNoteId: actualNotes.filter(note => note.title.toLowerCase().startsWith(action.payload.toLowerCase()))[0]?.id || null
             }
         }
         case SET_SORT_MODE: {
+            const sortedNotes = getActualNotes(state.notes, action.payload.sortMode, state.searchValue)
             return {
                 ...state,
                 sortMode: action.payload.sortMode,
+                currentNoteId: sortedNotes[0]?.id || null
             }
         }
         case ADD_NEW_NOTE: {
@@ -53,10 +59,17 @@ export const mainReducer = (state = startState, action: any) => {
             }
         }
         case DELETE_NOTE: {
+            const actualNotes = getActualNotes(state.notes, state.sortMode, state.searchValue)
+            const isEmpty = actualNotes.filter(note => note.id !== action.payload.id).length === 0 ? true : false
+            let newSortMode = state.sortMode;
+            if (isEmpty && newSortMode === 'fav') {
+                newSortMode = 'all'
+            }
             return {
                 ...state,
                 notes: [...state.notes].filter(note => note.id !== action.payload.id),
-                currentNoteId: [...state.notes].find(note => note.id !== action.payload.id)?.id
+                currentNoteId: actualNotes.find(note => note.id !== action.payload.id)?.id || null,
+                sortMode: newSortMode
             }
         }
         case SET_CURRENT_NOTE_ID: {
